@@ -19,7 +19,7 @@ public class Main {
 
 
         SessionFactory factory = new Configuration()
-                .configure("hib.xml")
+                .configure()
                 .buildSessionFactory();
 
         Session session = factory.openSession();
