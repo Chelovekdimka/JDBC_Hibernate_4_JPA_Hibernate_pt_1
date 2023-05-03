@@ -1,25 +1,41 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<persistence version="1.0"
-             xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd">
-    <persistence-unit name="mohr" transaction-type="RESOURCE_LOCAL">
-        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <properties>
-            <property name="hibernate.archive.autodetection" value="class" />
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<persistence version="1.0"-->
+<!--             xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+<!--             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd">-->
+<!--    <persistence-unit name="mohr" transaction-type="RESOURCE_LOCAL">-->
+<!--        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>-->
+<!--        <properties>-->
+<!--            <property name="hibernate.archive.autodetection" value="class" />-->
 
-            <!-- Conexão com o banco de dados -->
-            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
-            <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
-            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/library?serverTimezone=UTC" />
-            <property name="hibernate.connection.user" value="root" />
-            <property name="hibernate.connection.password" value="root" />
-            <property name="hibernate.hbm2ddl.auto" value="update"/>
+<!--            &lt;!&ndash; Conexão com o banco de dados &ndash;&gt;-->
+<!--            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />-->
+<!--            <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />-->
+<!--            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/library?serverTimezone=UTC" />-->
+<!--            <property name="hibernate.connection.user" value="root" />-->
+<!--            <property name="hibernate.connection.password" value="root" />-->
+<!--            <property name="hibernate.hbm2ddl.auto" value="update"/>-->
 
-            <!--Configuracoes de Debug-->
-            <property name="hibernate.show_sql" value="true" />
-            <property name="hibernate.format_sql" value="true" />
-            <property name="use_sql_comments" value="true" />
+<!--            &lt;!&ndash;Configuracoes de Debug&ndash;&gt;-->
+<!--            <property name="hibernate.show_sql" value="true" />-->
+<!--            <property name="hibernate.format_sql" value="true" />-->
+<!--            <property name="use_sql_comments" value="true" />-->
 
-        </properties>
-    </persistence-unit>
-</persistence>
+<!--        </properties>-->
+<!--    </persistence-unit>-->
+<!--</persistence>-->
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.dialect"> org.hibernate.dialect.MySQLDialect </property>
+        <property name="hibernate.connection.driver_class"> com.mysql.jdbc.Driver </property>
+        <!--  Assume students is the database name  -->
+        <property name="hibernate.connection.url"> jdbc:mysql://localhost:3306/library?serverTimezone=UTC </property>
+        <property name="hibernate.connection.username"> root </property>
+        <property name="hibernate.connection.password">root</property>
+        <property name="hibernate.hbm2ddl.auto"> update </property>
+        <property name="hibernate.show_sql"> true </property>
+        <property name="hibernate.format_sql"> true </property>
+        <property name="use_sql_comments"> true </property>
+        <mapping class="org.hm.ex_003_hibernate_get_and_insert.entity.entity.Author"/>
+        <mapping class="org.hm.ex_003_hibernate_get_and_insert.entity.entity.Book"/>
+    </session-factory>
+</hibernate-configuration>
