@@ -37,5 +37,6 @@
         <property name="use_sql_comments"> true </property>
         <mapping class="org.hm.ex_003_hibernate_get_and_insert.entity.entity.Author"/>
         <mapping class="org.hm.ex_003_hibernate_get_and_insert.entity.entity.Book"/>
+        <mapping class="ex_6.Animal"/>
     </session-factory>
 </hibernate-configuration>
